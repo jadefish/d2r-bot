@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "check": "bash scripts/check-syntax.sh",
-    "ci": "pnpm run check && pnpm test",
+    "post:tz": "node scripts/post-terror-zone.js",
     "test": "node --test"
   },
   "keywords": [],

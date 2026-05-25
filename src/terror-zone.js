@@ -1,6 +1,4 @@
-import { SlashCommandSubcommandBuilder } from "discord.js";
-
-import { fetchCachedText } from "../http.js";
+import { fetchCachedText } from "./http.js";
 
 const TERROR_ZONE_URL = "https://d2emu.com/tz";
 
@@ -13,15 +11,7 @@ const immunityEmojis = {
 	Poison: "☠️",
 };
 
-export const data = new SlashCommandSubcommandBuilder()
-	.setName("tz")
-	.setDescription("Shows the current and next terror zone.");
-
-export async function execute(interaction) {
-	await interaction.editReply(await getTerrorZoneReply());
-}
-
-async function getTerrorZoneReply() {
+export async function getTerrorZoneReply() {
 	const html = await fetchCachedText("terror-zone", TERROR_ZONE_URL);
 	const zones = parseTerrorZones(html);
 
@@ -32,7 +22,7 @@ async function getTerrorZoneReply() {
 	].join("\n");
 }
 
-function parseTerrorZones(html) {
+export function parseTerrorZones(html) {
 	const current = parseTerrorZoneValue(html, "__1");
 	const next = parseTerrorZoneValue(html, "__2");
 

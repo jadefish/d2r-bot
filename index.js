@@ -3,13 +3,11 @@ import { Client, Events, GatewayIntentBits, SlashCommandBuilder } from "discord.
 
 import * as alvlCommand from "./src/commands/alvl.js";
 import * as dcloneCommand from "./src/commands/dclone.js";
-import * as terrorZoneCommand from "./src/commands/tz.js";
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const subcommands = new Map([
 	[alvlCommand.data.name, alvlCommand],
 	[dcloneCommand.data.name, dcloneCommand],
-	[terrorZoneCommand.data.name, terrorZoneCommand],
 ]);
 
 const command = new SlashCommandBuilder()
